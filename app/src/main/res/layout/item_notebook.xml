@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="notebook"
+            type="jp.co.sony.mc.cast.notebook.mvvm.dp.bean.Notebook" />
+
+        <variable
+            name="onClick"
+            type="jp.co.sony.mc.cast.notebook.mvvm.ui.adapter.NotebookAdapter.ClickBinding" />
+
+<!--        <variable-->
+<!--            name="isBatchDeletion"-->
+<!--            type="Boolean" />-->
+<!--        -->
+<!--        <import type="android.view.View"/>-->
+<!--        <import type="androidx.core.content.ContextCompat" />-->
+<!--        <import type="jp.co.sony.mc.cast.notebook.mvvm.R"/>-->
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/detail"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/shape_bg_radius_12"
+        android:onClick="@{() -> onClick.itemClick(notebook,detail)}"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/tv_title"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{notebook.title}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@{notebook.content}"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+</layout>
